@@ -154,20 +154,6 @@ export function PricingSection() {
                 </motion.div>
               )}
 
-              {/* Popular badge */}
-              {plan.popular && (
-                <motion.div 
-                  className="absolute -top-4 left-1/2 -translate-x-1/2"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                >
-                  <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary to-gold-light text-primary-foreground text-sm font-medium shadow-gold">
-                    <Star className="w-3.5 h-3.5 fill-current" />
-                    Most Popular
-                  </span>
-                </motion.div>
-              )}
 
               {/* Content */}
               <div className="relative z-10">
