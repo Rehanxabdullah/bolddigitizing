@@ -7,6 +7,8 @@ import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { PricingSection } from '@/components/PricingSection';
 import { PortfolioSection } from '@/components/PortfolioSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { FAQSection } from '@/components/FAQSection';
+import { ContactSection } from '@/components/ContactSection';
 import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
 import { CursorTracker } from '@/components/CursorTracker';
@@ -25,6 +27,8 @@ const Index = () => {
         <PricingSection />
         <PortfolioSection />
         <TestimonialsSection />
+        <FAQSection />
+        <ContactSection />
         <CTASection />
       </main>
       <Footer />

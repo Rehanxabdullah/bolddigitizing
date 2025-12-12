@@ -83,7 +83,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-foreground" />
-              <span>Zero Revision Rate</span>
+              <span>4% Revision Rate</span>
             </div>
           </motion.div>
         </div>
