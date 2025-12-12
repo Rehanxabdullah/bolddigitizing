@@ -11,42 +11,36 @@ const portfolioItems = [
     title: 'Corporate Logo Digitizing',
     category: 'Embroidery',
     image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&h=500&fit=crop',
-    gradient: 'from-amber-500/80 to-orange-600/80',
   },
   {
     id: 2,
     title: 'Sports Team Emblem',
     category: 'Patches',
     image: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&h=500&fit=crop',
-    gradient: 'from-blue-500/80 to-indigo-600/80',
   },
   {
     id: 3,
     title: 'Brand Vector Conversion',
     category: 'Vector',
     image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=500&h=500&fit=crop',
-    gradient: 'from-emerald-500/80 to-teal-600/80',
   },
   {
     id: 4,
     title: 'Vintage Badge Design',
     category: 'Embroidery',
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop',
-    gradient: 'from-rose-500/80 to-pink-600/80',
   },
   {
     id: 5,
     title: 'Military Patch',
     category: 'Patches',
     image: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=500&h=500&fit=crop',
-    gradient: 'from-slate-500/80 to-gray-600/80',
   },
   {
     id: 6,
     title: 'Monogram Digitizing',
     category: 'Embroidery',
     image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&h=500&fit=crop',
-    gradient: 'from-violet-500/80 to-purple-600/80',
   },
 ];
 
@@ -156,13 +150,13 @@ export function PortfolioSection() {
           animate={isInView ? 'visible' : 'hidden'}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filteredItems.map((item, index) => (
+          {filteredItems.map((item) => (
             <motion.div
               key={item.id}
               layout
               variants={itemVariants}
               whileHover={{ y: -8 }}
-              className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer bg-card hover:bg-muted/20 transition-colors duration-300"
             >
               {/* Image */}
               <motion.img
@@ -173,8 +167,8 @@ export function PortfolioSection() {
                 transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               />
               
-              {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              {/* Muted Overlay */}
+              <div className="absolute inset-0 bg-muted/0 group-hover:bg-muted/20 transition-colors duration-300" />
               
               {/* Content Overlay */}
               <motion.div 
@@ -184,7 +178,7 @@ export function PortfolioSection() {
               >
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <motion.span 
-                    className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary to-gold-light text-primary-foreground text-xs font-medium mb-3"
+                    className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium mb-3"
                     initial={{ y: 10, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.1 }}
@@ -204,7 +198,7 @@ export function PortfolioSection() {
               </motion.div>
 
               {/* Border glow */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-colors duration-300 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 transition-colors duration-300 pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>
