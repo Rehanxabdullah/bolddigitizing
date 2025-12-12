@@ -20,7 +20,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-6"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-secondary text-sm font-medium text-muted-foreground border border-border">
+            <span className="inline-block px-4 py-2 rounded-full bg-secondary text-sm font-medium text-foreground/80 border border-border">
               Trusted by 500+ Embroidery Shops
             </span>
           </motion.div>
