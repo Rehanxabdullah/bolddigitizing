@@ -106,14 +106,14 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-background/40">
+          <p className="text-sm text-background/60">
             © {new Date().getFullYear()} StitchPro. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-background/40 hover:text-primary transition-colors">
+            <a href="#" className="text-sm text-background/60 hover:text-primary transition-colors">
               Privacy
             </a>
-            <a href="#" className="text-sm text-background/40 hover:text-primary transition-colors">
+            <a href="#" className="text-sm text-background/60 hover:text-primary transition-colors">
               Terms
             </a>
           </div>
