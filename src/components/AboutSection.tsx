@@ -8,22 +8,16 @@ const values = [
     icon: Target,
     title: 'Precision',
     description: 'Every stitch matters. Our digitizers ensure pixel-perfect accuracy for flawless embroidery output.',
-    gradient: 'from-rose-500/20 to-pink-500/20',
-    iconColor: 'text-rose-500',
   },
   {
     icon: Clock,
     title: 'Speed',
     description: '3-4 hour turnaround on standard orders. Your deadlines are our priority.',
-    gradient: 'from-amber-500/20 to-orange-500/20',
-    iconColor: 'text-amber-500',
   },
   {
     icon: Award,
     title: 'Quality',
     description: 'Premium files that work flawlessly on any embroidery machine, every single time.',
-    gradient: 'from-emerald-500/20 to-teal-500/20',
-    iconColor: 'text-emerald-500',
   },
 ];
 
@@ -107,31 +101,31 @@ export function AboutSection() {
             animate={isInView ? 'visible' : 'hidden'}
             className="grid md:grid-cols-3 gap-8"
           >
-            {values.map((value, index) => (
+            {values.map((value) => (
               <motion.div
                 key={value.title}
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative text-center"
+                className="group relative text-center h-full"
               >
                 {/* Card with gradient border */}
-                <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-border via-primary/20 to-border overflow-hidden">
-                  <div className={`relative rounded-2xl bg-card p-8 overflow-hidden`}>
+                <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-border via-primary/20 to-border overflow-hidden h-full">
+                  <div className="relative rounded-2xl bg-card p-8 overflow-hidden h-full flex flex-col">
                     {/* Hover gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-gold-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     {/* Content */}
-                    <div className="relative z-10">
+                    <div className="relative z-10 flex flex-col items-center flex-1">
                       <motion.div 
                         className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-background border border-border mb-6 transition-all duration-300 group-hover:border-primary group-hover:shadow-gold"
                         whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
                       >
-                        <value.icon className={`w-6 h-6 ${value.iconColor} transition-transform group-hover:scale-110`} />
+                        <value.icon className="w-6 h-6 text-primary transition-transform group-hover:scale-110" />
                       </motion.div>
                       <h3 className="text-xl font-display font-semibold mb-3">
                         {value.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed flex-1">
                         {value.description}
                       </p>
                     </div>

@@ -9,28 +9,24 @@ const steps = [
     icon: Upload,
     title: 'Upload Your Design',
     description: 'Send us your artwork in any format. We accept JPG, PNG, PDF, AI, and more.',
-    gradient: 'from-amber-500 to-orange-500',
   },
   {
     number: '02',
     icon: Cpu,
     title: 'We Digitize & Optimize',
     description: 'Our expert digitizers transform your design into machine-ready embroidery files.',
-    gradient: 'from-blue-500 to-indigo-500',
   },
   {
     number: '03',
     icon: CheckCircle,
     title: 'Quality Review',
     description: 'Every file undergoes rigorous quality checks before delivery.',
-    gradient: 'from-emerald-500 to-teal-500',
   },
   {
     number: '04',
     icon: Zap,
     title: 'Fast Delivery',
     description: 'Receive your files within 3-4 hours, ready to stitch.',
-    gradient: 'from-rose-500 to-pink-500',
   },
 ];
 
@@ -125,16 +121,13 @@ export function HowItWorksSection() {
                 whileHover={{ y: -8 }}
                 className="relative text-center lg:text-left group"
               >
-                {/* Step icon with gradient */}
+                {/* Step icon - original gold style */}
                 <motion.div 
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} mb-6 relative z-10 shadow-lg`}
+                  className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-background/10 border border-primary/30 mb-6 relative z-10 group-hover:border-primary group-hover:shadow-gold transition-all duration-300"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <step.icon className="w-7 h-7 text-background" />
-                  
-                  {/* Glow effect */}
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.gradient} opacity-50 blur-xl -z-10 group-hover:opacity-80 transition-opacity`} />
+                  <step.icon className="w-7 h-7 text-primary" />
                 </motion.div>
 
                 {/* Number badge */}
@@ -157,13 +150,11 @@ export function HowItWorksSection() {
                 {/* Mobile connector */}
                 {index < steps.length - 1 && (
                   <motion.div 
-                    className="sm:hidden w-0.5 h-8 mx-auto mt-6"
+                    className="sm:hidden w-0.5 h-8 mx-auto mt-6 bg-primary/30"
                     initial={{ height: 0, opacity: 0 }}
                     animate={isInView ? { height: 32, opacity: 1 } : {}}
                     transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                  >
-                    <div className={`h-full bg-gradient-to-b ${step.gradient}`} />
-                  </motion.div>
+                  />
                 )}
               </motion.div>
             ))}
