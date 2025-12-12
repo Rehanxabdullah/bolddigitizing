@@ -10,7 +10,6 @@ const testimonials = [
     title: 'Owner, ThreadWorks Embroidery',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
     rating: 5,
-    gradient: 'from-amber-500/10 to-orange-500/10',
   },
   {
     quote: "After trying five different digitizing services, we finally found one that understands embroidery. Their files run perfectly on all our machines.",
@@ -18,7 +17,6 @@ const testimonials = [
     title: 'Production Manager, Elite Stitches',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
     rating: 5,
-    gradient: 'from-blue-500/10 to-indigo-500/10',
   },
   {
     quote: "The retainer plan is incredible value. Having a dedicated digitizer who knows our style has saved us countless hours of back-and-forth.",
@@ -26,7 +24,6 @@ const testimonials = [
     title: 'CEO, Custom Caps Co.',
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
     rating: 5,
-    gradient: 'from-emerald-500/10 to-teal-500/10',
   },
 ];
 
@@ -107,9 +104,9 @@ export function TestimonialsSection() {
             >
               {/* Card with gradient border */}
               <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-border via-primary/20 to-border overflow-hidden transition-all duration-500 group-hover:from-primary/40 group-hover:via-gold-light/30 group-hover:to-primary/40">
-                <div className={`relative rounded-2xl bg-card p-8 overflow-hidden h-full`}>
-                  {/* Hover gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative rounded-2xl bg-card p-8 overflow-hidden h-full">
+                  {/* Hover gradient - light yellow */}
+                  <div className="absolute inset-0 bg-yellow-100/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Quote icon */}
                   <motion.div 

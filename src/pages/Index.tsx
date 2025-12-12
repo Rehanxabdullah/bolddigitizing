@@ -7,6 +7,7 @@ import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { PricingSection } from '@/components/PricingSection';
 import { PortfolioSection } from '@/components/PortfolioSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
 import { CursorTracker } from '@/components/CursorTracker';
 
@@ -24,6 +25,7 @@ const Index = () => {
         <PricingSection />
         <PortfolioSection />
         <TestimonialsSection />
+        <CTASection />
       </main>
       <Footer />
     </div>
