@@ -25,9 +25,9 @@ const stats = [
     gradient: 'from-emerald-500 to-teal-500',
   },
   {
-    number: 5,
-    suffix: '%',
-    label: 'Revision Rate',
+    number: 4,
+    suffix: 'hrs',
+    label: 'Average Turnaround',
     accent: true,
     gradient: 'from-rose-500 to-pink-500',
   },
