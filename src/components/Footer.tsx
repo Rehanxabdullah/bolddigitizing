@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const footerLinks = {
   company: [
@@ -22,35 +21,6 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer id="contact" className="bg-foreground text-background">
-      {/* CTA Section */}
-      <div className="border-b border-background/10">
-        <div className="container-custom py-16 md:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight mb-6">
-              Ready to Transform Your{' '}
-              <span className="text-primary">Workflow?</span>
-            </h2>
-            <p className="text-background/70 text-lg mb-8 max-w-xl mx-auto">
-              Join 500+ embroidery shops that trust StitchPro for precision digitizing. 
-              Get your first design in hours, not days.
-            </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold transition-all duration-300 hover:bg-gold-dark hover:shadow-gold group"
-            >
-              Request a Quote
-              <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Footer Links */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">

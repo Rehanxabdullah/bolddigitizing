@@ -1,33 +1,67 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const stats = [
   {
-    number: '5,000+',
+    number: 5000,
+    suffix: '+',
     label: 'Designs Delivered',
     accent: true,
     gradient: 'from-amber-500 to-orange-500',
   },
   {
-    number: '500+',
+    number: 500,
+    suffix: '+',
     label: 'Embroidery Shops Trust Us',
     accent: false,
     gradient: 'from-blue-500 to-indigo-500',
   },
   {
-    number: '99%',
+    number: 99,
+    suffix: '%',
     label: 'On-Time Delivery',
     accent: false,
     gradient: 'from-emerald-500 to-teal-500',
   },
   {
-    number: '3-4hrs',
-    label: 'Average Turnaround',
+    number: 5,
+    suffix: '%',
+    label: 'Revision Rate',
     accent: true,
     gradient: 'from-rose-500 to-pink-500',
   },
 ];
+
+function useCountUp(end: number, duration: number = 2000, start: boolean = false) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+    
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * end));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration, start]);
+
+  return count;
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -53,6 +87,52 @@ const itemVariants = {
   },
 };
 
+function StatItem({ stat, index, isInView }: { stat: typeof stats[0]; index: number; isInView: boolean }) {
+  const count = useCountUp(stat.number, 2000, isInView);
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ scale: 1.05, y: -5 }}
+      className="text-center group"
+    >
+      <div className="relative inline-block">
+        {/* Gradient accent lines */}
+        <motion.div 
+          className={`absolute -top-3 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100`}
+          initial={{ scaleX: 0 }}
+          whileHover={{ scaleX: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+        
+        <motion.p 
+          className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-2"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          {count.toLocaleString()}{stat.suffix}
+        </motion.p>
+        
+        <motion.div 
+          className={`absolute -bottom-3 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100`}
+          initial={{ scaleX: 0 }}
+          whileHover={{ scaleX: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+      <motion.p 
+        className="text-sm md:text-base text-muted-foreground mt-4 group-hover:text-foreground transition-colors"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+      >
+        {stat.label}
+      </motion.p>
+    </motion.div>
+  );
+}
+
 export function SocialProofSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -75,46 +155,7 @@ export function SocialProofSection() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
         >
           {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center group"
-            >
-              <div className="relative inline-block">
-                {/* Gradient accent lines */}
-                <motion.div 
-                  className={`absolute -top-3 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100`}
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                
-                <motion.p 
-                  className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-2"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  {stat.number}
-                </motion.p>
-                
-                <motion.div 
-                  className={`absolute -bottom-3 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100`}
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </div>
-              <motion.p 
-                className="text-sm md:text-base text-muted-foreground mt-4 group-hover:text-foreground transition-colors"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              >
-                {stat.label}
-              </motion.p>
-            </motion.div>
+            <StatItem key={stat.label} stat={stat} index={index} isInView={isInView} />
           ))}
         </motion.div>
       </div>
