@@ -132,7 +132,7 @@ export function ContactSection() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-foreground mb-1">Email Us</h4>
+                  <h3 className="font-display font-semibold text-foreground mb-1 text-base">Email Us</h3>
                   <a href="mailto:hello@stitchpro.com" className="text-muted-foreground hover:text-primary transition-colors">
                     hello@stitchpro.com
                   </a>
@@ -144,7 +144,7 @@ export function ContactSection() {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-foreground mb-1">Call Us</h4>
+                  <h3 className="font-display font-semibold text-foreground mb-1 text-base">Call Us</h3>
                   <a href="tel:+1-800-555-0123" className="text-muted-foreground hover:text-primary transition-colors">
                     1-800-555-0123
                   </a>
@@ -156,7 +156,7 @@ export function ContactSection() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-foreground mb-1">Location</h4>
+                  <h3 className="font-display font-semibold text-foreground mb-1 text-base">Location</h3>
                   <p className="text-muted-foreground">
                     123 Stitch Street<br />
                     Embroidery City, EC 12345
@@ -167,7 +167,7 @@ export function ContactSection() {
 
             {/* Hours */}
             <div className="p-6 rounded-2xl bg-card border border-border">
-              <h4 className="font-display font-semibold text-foreground mb-3">Business Hours</h4>
+              <h3 className="font-display font-semibold text-foreground mb-3 text-base">Business Hours</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
