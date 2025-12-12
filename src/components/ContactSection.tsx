@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
@@ -48,8 +49,17 @@ export function ContactSection() {
     try {
       const validatedData = contactSchema.parse(formData);
       
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Save to database
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: validatedData.name,
+          email: validatedData.email,
+          phone: validatedData.phone || null,
+          message: validatedData.message,
+        });
+
+      if (dbError) throw dbError;
       
       toast({
         title: "Message sent!",
