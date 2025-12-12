@@ -16,6 +16,12 @@ const ContactSection = lazy(() => import('@/components/ContactSection').then(m =
 const CTASection = lazy(() => import('@/components/CTASection').then(m => ({ default: m.CTASection })));
 const Footer = lazy(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
 
+const SectionDivider = () => (
+  <div className="container-custom py-4">
+    <div className="border-t border-dashed border-border/50" />
+  </div>
+);
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden cursor-none">
@@ -23,16 +29,26 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <SectionDivider />
         <Suspense fallback={<div className="min-h-[200px]" />}>
           <SocialProofSection />
+          <SectionDivider />
           <AboutSection />
+          <SectionDivider />
           <ServicesSection />
+          <SectionDivider />
           <HowItWorksSection />
+          <SectionDivider />
           <PricingSection />
+          <SectionDivider />
           <PortfolioSection />
+          <SectionDivider />
           <TestimonialsSection />
+          <SectionDivider />
           <FAQSection />
+          <SectionDivider />
           <ContactSection />
+          <SectionDivider />
           <CTASection />
         </Suspense>
       </main>
