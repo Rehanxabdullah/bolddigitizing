@@ -96,13 +96,7 @@ export function SocialProofSection() {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  {stat.accent ? (
-                    <span className={`bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
-                      {stat.number}
-                    </span>
-                  ) : (
-                    stat.number
-                  )}
+                  {stat.number}
                 </motion.p>
                 
                 <motion.div 

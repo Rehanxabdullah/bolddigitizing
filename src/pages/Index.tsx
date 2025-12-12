@@ -8,10 +8,12 @@ import { PricingSection } from '@/components/PricingSection';
 import { PortfolioSection } from '@/components/PortfolioSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { Footer } from '@/components/Footer';
+import { CursorTracker } from '@/components/CursorTracker';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden cursor-none">
+      <CursorTracker />
       <Navigation />
       <main>
         <HeroSection />
