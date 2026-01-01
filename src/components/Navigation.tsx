@@ -37,7 +37,7 @@ export function Navigation() {
   }} transition={{
     duration: 0.6,
     ease: [0.4, 0, 0.2, 1]
-  }} className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 my-[2px]">
+  }} className="relative z-50 px-4 md:px-8 py-4 my-[2px]">
       <nav className={`container-custom mx-auto flex items-center justify-between rounded-3xl px-6 py-3 transition-all duration-300 border border-foreground/20 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-lg' : 'bg-background/80 backdrop-blur-sm'}`}>
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3">
