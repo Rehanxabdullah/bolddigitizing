@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
-import { supabase } from '@/integrations/supabase/client';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
@@ -23,7 +22,6 @@ export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -35,35 +33,33 @@ export function ContactSection() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name as keyof ContactFormData]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrors({});
 
     try {
       const validatedData = contactSchema.parse(formData);
       
-      // Save to database
-      const { error: dbError } = await supabase
-        .from('contact_submissions')
-        .insert({
-          name: validatedData.name,
-          email: validatedData.email,
-          phone: validatedData.phone || null,
-          message: validatedData.message,
-        });
-
-      if (dbError) throw dbError;
+      // Build mailto link with form data
+      const subject = encodeURIComponent(`Contact Form: Message from ${validatedData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${validatedData.name}\n` +
+        `Email: ${validatedData.email}\n` +
+        `Phone: ${validatedData.phone || 'Not provided'}\n\n` +
+        `Message:\n${validatedData.message}`
+      );
+      
+      // Open user's email client
+      window.location.href = `mailto:Bolddigitizing01@gmail.com?subject=${subject}&body=${body}`;
       
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you within 24 hours.",
+        title: "Email client opened!",
+        description: "Please send the email from your email application.",
       });
       
       setFormData({ name: '', email: '', phone: '', message: '' });
@@ -83,8 +79,6 @@ export function ContactSection() {
           variant: "destructive",
         });
       }
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -260,9 +254,8 @@ export function ContactSection() {
                 variant="gold" 
                 size="lg" 
                 className="w-full group"
-                disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                Send Message
                 <Send className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </form>
