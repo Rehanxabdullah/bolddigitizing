@@ -2,18 +2,23 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+
+import digitizingHorse from '@/assets/services/digitizing-horse.png';
+import digitizingCat from '@/assets/services/digitizing-cat.png';
+import digitizingSkull from '@/assets/services/digitizing-skull.png';
+
 const services = [{
   title: 'Custom Embroidery Digitizing',
   description: 'Transform any artwork into machine-ready embroidery files with precision stitching for logos, monograms, and complex designs.',
-  image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop'
+  image: digitizingHorse
 }, {
   title: 'Vector Art Conversion',
   description: 'Convert raster images to crisp, scalable vector files. Perfect for print, signage, and high-resolution applications.',
-  image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop'
+  image: digitizingCat
 }, {
   title: 'Custom Patch Design',
   description: 'Create stunning embroidered patches with detailed edge finishing. Ideal for uniforms, merchandise, and brand applications.',
-  image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&h=400&fit=crop'
+  image: digitizingSkull
 }];
 const containerVariants = {
   hidden: {
