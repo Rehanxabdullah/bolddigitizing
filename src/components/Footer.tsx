@@ -34,20 +34,20 @@ export function Footer() {
                   <path d="M2 12l10 5 10-5" />
                 </svg>
               </div>
-              <span className="font-display font-bold text-lg">StitchPro</span>
+              <span className="font-display font-bold text-lg">Bolddigitizing</span>
             </a>
             <p className="text-background/60 text-sm leading-relaxed mb-6">
               Premium embroidery digitizing services trusted by professionals nationwide.
             </p>
             {/* Contact Info */}
             <div className="space-y-2">
-              <a href="mailto:hello@stitchpro.com" className="flex items-center gap-2 text-sm text-background/60 hover:text-primary transition-colors">
+              <a href="mailto:Bolddigitizing01@gmail.com" className="flex items-center gap-2 text-sm text-background/60 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
-                hello@stitchpro.com
+                Bolddigitizing01@gmail.com
               </a>
-              <a href="tel:+1-800-555-0123" className="flex items-center gap-2 text-sm text-background/60 hover:text-primary transition-colors">
+              <a href="tel:+1-469-960-7558" className="flex items-center gap-2 text-sm text-background/60 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                1-800-555-0123
+                (469) 960-7558
               </a>
             </div>
           </div>
@@ -107,7 +107,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-background/60">
-            © {new Date().getFullYear()} StitchPro. All rights reserved.
+            © {new Date().getFullYear()} Bolddigitizing. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-background/60 hover:text-primary transition-colors">

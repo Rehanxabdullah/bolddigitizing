@@ -143,8 +143,8 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-display font-semibold text-foreground mb-1 text-base">Email Us</h3>
-                  <a href="mailto:hello@stitchpro.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    hello@stitchpro.com
+                  <a href="mailto:Bolddigitizing01@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    Bolddigitizing01@gmail.com
                   </a>
                 </div>
               </div>
@@ -155,8 +155,8 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-display font-semibold text-foreground mb-1 text-base">Call Us</h3>
-                  <a href="tel:+1-800-555-0123" className="text-muted-foreground hover:text-primary transition-colors">
-                    1-800-555-0123
+                  <a href="tel:+1-469-960-7558" className="text-muted-foreground hover:text-primary transition-colors">
+                    (469) 960-7558
                   </a>
                 </div>
               </div>
@@ -168,8 +168,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-display font-semibold text-foreground mb-1 text-base">Location</h3>
                   <p className="text-muted-foreground">
-                    123 Stitch Street<br />
-                    Embroidery City, EC 12345
+                    Breaswood, Texas
                   </p>
                 </div>
               </div>
