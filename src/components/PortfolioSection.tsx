@@ -3,44 +3,66 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
+// Portfolio images
+import chapiWings from '@/assets/portfolio/chapi-wings.jpg';
+import dodgersHeart from '@/assets/portfolio/dodgers-heart.jpg';
+import minnieJacket from '@/assets/portfolio/minnie-jacket.png';
+import minniePink from '@/assets/portfolio/minnie-pink.jpg';
+import hellboySkull from '@/assets/portfolio/hellboy-skull.jpg';
+import punishersBeanie from '@/assets/portfolio/punishers-beanie.png';
+import dhlCap from '@/assets/portfolio/dhl-cap.png';
+import unicornCara from '@/assets/portfolio/unicorn-cara.png';
+
 const categories = ['All', 'Embroidery', 'Vector', 'Patches'];
 
 const portfolioItems = [
   {
     id: 1,
-    title: 'Corporate Logo Digitizing',
+    title: 'Chapi Wings Jacket',
     category: 'Embroidery',
-    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&h=500&fit=crop',
+    image: chapiWings,
   },
   {
     id: 2,
-    title: 'Sports Team Emblem',
-    category: 'Patches',
-    image: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&h=500&fit=crop',
+    title: 'Dodgers Heart Logo',
+    category: 'Vector',
+    image: dodgersHeart,
   },
   {
     id: 3,
-    title: 'Brand Vector Conversion',
-    category: 'Vector',
-    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=500&h=500&fit=crop',
+    title: 'Minnie Mouse Jacket',
+    category: 'Embroidery',
+    image: minnieJacket,
   },
   {
     id: 4,
-    title: 'Vintage Badge Design',
+    title: 'Minnie Mouse Design',
     category: 'Embroidery',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop',
+    image: minniePink,
   },
   {
     id: 5,
-    title: 'Military Patch',
-    category: 'Patches',
-    image: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=500&h=500&fit=crop',
+    title: 'Hellboy Skull Art',
+    category: 'Vector',
+    image: hellboySkull,
   },
   {
     id: 6,
-    title: 'Monogram Digitizing',
+    title: 'Punishers Team Beanie',
+    category: 'Patches',
+    image: punishersBeanie,
+  },
+  {
+    id: 7,
+    title: 'DHL Corporate Cap',
     category: 'Embroidery',
-    image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&h=500&fit=crop',
+    image: dhlCap,
+  },
+  {
+    id: 8,
+    title: 'Unicorn Cara Design',
+    category: 'Embroidery',
+    image: unicornCara,
   },
 ];
 
