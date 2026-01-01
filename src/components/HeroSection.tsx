@@ -67,9 +67,11 @@ export function HeroSection() {
           duration: 0.6,
           delay: 0.5
         }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="gold" size="xl" className="group">
-              Request a Quote
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <Button variant="gold" size="xl" className="group" asChild>
+              <a href="mailto:Bolddigitizing01@gmail.com?subject=Need%20a%20Quote">
+                Request a Quote
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
             <Button variant="outline" size="xl" className="group">
               <Play className="w-4 h-4" />

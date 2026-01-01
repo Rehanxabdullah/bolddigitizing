@@ -13,7 +13,7 @@ const navLinks = [{
   href: '#portfolio'
 }, {
   name: 'Contact',
-  href: '#contact'
+  href: '#contact-form'
 }];
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +48,7 @@ export function Navigation() {
               <path d="M2 12l10 5 10-5" />
             </svg>
           </div>
-          <span className="font-display font-bold text-lg tracking-tight">StitchPro</span>
+          <span className="font-display font-bold text-lg tracking-tight">Bolddigitizing</span>
         </a>
 
         {/* Desktop Nav Links */}
@@ -63,8 +63,10 @@ export function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button variant="nav" size="nav">
-            Request a Quote
+          <Button variant="nav" size="nav" asChild>
+            <a href="mailto:Bolddigitizing01@gmail.com?subject=Need%20a%20Quote">
+              Request a Quote
+            </a>
           </Button>
         </div>
 
@@ -92,8 +94,10 @@ export function Navigation() {
               {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => handleLinkClick(link.name)} className={`text-lg font-medium transition-colors ${activeLink === link.name ? 'text-foreground' : 'text-muted-foreground'}`}>
                   {link.name}
                 </a>)}
-              <Button variant="gold" size="lg" className="mt-4 w-full">
-                Request a Quote
+              <Button variant="gold" size="lg" className="mt-4 w-full" asChild>
+                <a href="mailto:Bolddigitizing01@gmail.com?subject=Need%20a%20Quote">
+                  Request a Quote
+                </a>
               </Button>
             </div>
           </motion.div>}
