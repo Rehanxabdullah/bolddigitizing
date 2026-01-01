@@ -2,95 +2,96 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Custom Embroidery Digitizing',
-    description: 'Transform any artwork into machine-ready embroidery files with precision stitching for logos, monograms, and complex designs.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Vector Art Conversion',
-    description: 'Convert raster images to crisp, scalable vector files. Perfect for print, signage, and high-resolution applications.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Custom Patch Design',
-    description: 'Create stunning embroidered patches with detailed edge finishing. Ideal for uniforms, merchandise, and brand applications.',
-    image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&h=400&fit=crop',
-  },
-];
-
+const services = [{
+  title: 'Custom Embroidery Digitizing',
+  description: 'Transform any artwork into machine-ready embroidery files with precision stitching for logos, monograms, and complex designs.',
+  image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop'
+}, {
+  title: 'Vector Art Conversion',
+  description: 'Convert raster images to crisp, scalable vector files. Perfect for print, signage, and high-resolution applications.',
+  image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop'
+}, {
+  title: 'Custom Patch Design',
+  description: 'Create stunning embroidered patches with detailed edge finishing. Ideal for uniforms, merchandise, and brand applications.',
+  image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&h=400&fit=crop'
+}];
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0
+  },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
+      delayChildren: 0.1
+    }
+  }
 };
-
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: {
+    opacity: 0,
+    y: 40
+  },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut" as const,
-    },
-  },
+      ease: "easeOut" as const
+    }
+  }
 };
-
 export function ServicesSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <section className="section-padding bg-animated-gradient">
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px'
+  });
+  return <section className="section-padding bg-animated-gradient">
       <div className="container-custom">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.span 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-gold-light/10 text-sm font-medium text-foreground mb-4 border border-primary/20"
-          >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.6
+      }} className="text-center mb-16">
+          <motion.span initial={{
+          opacity: 0,
+          scale: 0.9
+        }} animate={isInView ? {
+          opacity: 1,
+          scale: 1
+        } : {}} transition={{
+          duration: 0.5
+        }} className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-gold-light/10 text-sm font-medium text-foreground mb-4 border border-primary/20">
             Our Services
           </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight"
-          >
+          <motion.h2 initial={{
+          opacity: 0,
+          y: 20
+        }} animate={isInView ? {
+          opacity: 1,
+          y: 0
+        } : {}} transition={{
+          duration: 0.6,
+          delay: 0.1
+        }} className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
             Everything Your Shop Needs
           </motion.h2>
         </motion.div>
 
         {/* Services Grid */}
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-3 gap-6 lg:gap-8"
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              variants={itemVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group relative rounded-2xl border border-border overflow-hidden bg-card hover:bg-muted/20 transition-colors duration-300"
-            >
+        <motion.div ref={ref} variants={containerVariants} initial="hidden" animate={isInView ? 'visible' : 'hidden'} className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, index) => <motion.div key={service.title} variants={itemVariants} whileHover={{
+          y: -8,
+          transition: {
+            duration: 0.3
+          }
+        }} className="group relative rounded-2xl border border-border overflow-hidden bg-card hover:bg-muted/20 transition-colors duration-300">
               {/* Shine effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -98,15 +99,14 @@ export function ServicesSection() {
 
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
-                <motion.img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-                />
+                <motion.img src={service.image} alt={service.title} className="w-full h-full object-cover" whileHover={{
+              scale: 1.1
+            }} transition={{
+              duration: 0.7,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }} />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-muted/0 transition-colors duration-300 group-hover:bg-muted/20" />
+                <div className="absolute inset-0 bg-muted/0 transition-colors duration-300 group-hover:bg-muted/20 opacity-10" />
               </div>
 
               {/* Content */}
@@ -115,10 +115,10 @@ export function ServicesSection() {
                   <h3 className="text-xl font-display font-semibold leading-tight">
                     {service.title}
                   </h3>
-                  <motion.div 
-                    className="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    whileHover={{ scale: 1.1, rotate: 45 }}
-                  >
+                  <motion.div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transition-all duration-300" whileHover={{
+                scale: 1.1,
+                rotate: 45
+              }}>
                     <ArrowUpRight className="w-4 h-4" />
                   </motion.div>
                 </div>
@@ -126,21 +126,22 @@ export function ServicesSection() {
                   {service.description}
                 </p>
                 {/* Animated accent line */}
-                <motion.div 
-                  className="mt-6 h-0.5 bg-gradient-to-r from-primary via-gold-light to-transparent"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
-                  transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
-                  viewport={{ once: true }}
-                />
+                <motion.div className="mt-6 h-0.5 bg-gradient-to-r from-primary via-gold-light to-transparent" initial={{
+              width: 0
+            }} whileInView={{
+              width: '100%'
+            }} transition={{
+              duration: 0.8,
+              delay: 0.3 + index * 0.1
+            }} viewport={{
+              once: true
+            }} />
               </div>
 
               {/* Border glow on hover */}
               <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 transition-colors duration-300 pointer-events-none" />
-            </motion.div>
-          ))}
+            </motion.div>)}
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 }
