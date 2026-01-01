@@ -1,4 +1,4 @@
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Instagram, Facebook } from 'lucide-react';
 
 const footerLinks = {
   company: [
@@ -48,6 +48,25 @@ export function Footer() {
               <a href="tel:+1-469-960-7558" className="flex items-center gap-2 text-sm text-background/60 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 (469) 960-7558
+              </a>
+            </div>
+            {/* Social Links */}
+            <div className="flex items-center gap-3 mt-4">
+              <a 
+                href="https://instagram.com/bolddigitizing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+              >
+                <Instagram className="w-4 h-4 text-background/60 hover:text-primary" />
+              </a>
+              <a 
+                href="https://facebook.com/bolddigitizing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+              >
+                <Facebook className="w-4 h-4 text-background/60 hover:text-primary" />
               </a>
             </div>
           </div>
