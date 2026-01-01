@@ -106,7 +106,7 @@ export function ServicesSection() {
               ease: [0.25, 0.46, 0.45, 0.94]
             }} />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-muted/0 transition-colors duration-300 group-hover:bg-muted/20 opacity-10" />
+                
               </div>
 
               {/* Content */}
