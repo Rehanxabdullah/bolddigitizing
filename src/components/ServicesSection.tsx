@@ -104,7 +104,7 @@ export function ServicesSection() {
 
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
-                <motion.img src={service.image} alt={service.title} className="w-full h-full object-cover" whileHover={{
+                <motion.img src={service.image} alt={service.title} className="w-full h-full object-contain bg-muted/10" whileHover={{
               scale: 1.1
             }} transition={{
               duration: 0.7,
