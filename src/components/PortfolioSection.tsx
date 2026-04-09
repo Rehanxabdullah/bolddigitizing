@@ -184,8 +184,8 @@ export function PortfolioSection() {
               <motion.img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }}
+                className="w-full h-full object-contain bg-muted/10"
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               />
               
